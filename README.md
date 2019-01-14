@@ -41,6 +41,10 @@ RUN apk add --no-cache tini
 ENTRYPOINT ["/sbin/tini", "--"]
 ```
 
+### Caveats
+
+`nodemonConfig` in `package.json` is not being used during local development due to the way the dockerfile is implemented. We can simply COPY over the `package.json` file from the build stage. This will add an extra docker layer only for local development. We'll see how we can keep our dockerfile lean & use docker-compose to assist in achieving our Goal.
+
 # References
 * [Docker Node.js Best Practices](https://github.com/nodejs/docker-node/blob/master/docs/BestPractices.md)
 

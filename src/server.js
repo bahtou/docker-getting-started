@@ -27,7 +27,7 @@ function shutdown() {
   logger.warn('Server shutting down');
   logger.warn('Closing HTTP server -- not accepting new connections but keeping existing connections');
 
-  httpServer.close((err) => {
+  httpServer.close(err => {
     if (err) logger.error('Server was not open when it was closed', err);
     app.emit('close', () => {
       process.exit(0);

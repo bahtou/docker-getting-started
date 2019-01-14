@@ -2,8 +2,8 @@
 FROM node:11.6.0-alpine as base
 
 
-# ---- Builder ----
-FROM base as builder
+# ---- Build ----
+FROM base as build
 
 WORKDIR /srv
 
@@ -29,7 +29,8 @@ USER node
 
 WORKDIR /home/node
 
-COPY --from=builder /srv/node_modules ./node_modules/
+COPY --from=build /srv/node_modules ./node_modules/
+COPY --from=build /srv/package.json ./
 COPY ./src ./src
 
 ENTRYPOINT ["/sbin/tini", "--"]
