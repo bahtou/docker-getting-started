@@ -1,0 +1,23 @@
+# OS
+.DS_Store
+.idea
+.vscode
+
+# Dependency directories
+node_modules
+npm-debug.log
+
+# Logs
+*.log
+logs
+npm-debug.log*
+newrelic_agent.log
+
+# App
+comMsg.md
+.env
+
+# Other
+test.js
+productListingHash.js
+dump.rdb

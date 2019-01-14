@@ -1,0 +1,8 @@
+.git
+.idea
+**/node_modules
+.DS_Store
+.data
+.eslintrc
+.gitignore
+README.md
