@@ -10,4 +10,4 @@ ENV NODE_ENV local
 
 EXPOSE 3000
 
-CMD ["node", "./node_modules/.bin/nodemon", "--use-strict", "./src/server.js"]
+CMD ["node", "node_modules/.bin/nodemon", "--use-strict", "src/server.js"]
