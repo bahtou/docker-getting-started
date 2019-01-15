@@ -1,0 +1,32 @@
+{
+  "name": "node-redis",
+  "version": "1.0.0",
+  "description": "connect a node & redis container to the same network & persist data",
+  "main": "index.js",
+  "nodemonConfig": {
+    "ext": "*.js",
+    "ignore": ["node_modules/*"],
+    "verbose": true,
+    "legacy-watch": true
+  },
+  "dependencies": {
+    "redis": "^2.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bahtou/docker-getting-started.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bahtou/docker-getting-started/issues"
+  },
+  "homepage": "https://github.com/bahtou/docker-getting-started#readme"
+}
