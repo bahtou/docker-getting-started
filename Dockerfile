@@ -1,0 +1,7 @@
+FROM postgres:11.1-alpine
+
+ENV POSTGRES_PASSWORD password
+ENV POSTGRES_USER novice
+ENV POSTGRES_DB gettingStarted
+
+EXPOSE 5432
