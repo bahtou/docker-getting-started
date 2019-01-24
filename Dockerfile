@@ -1,5 +1,6 @@
 # ---- Base ----
 FROM node:11.6.0-alpine as base
+
 ENV APP_NAME=getting-started-node-api
 
 

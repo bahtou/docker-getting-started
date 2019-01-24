@@ -10,6 +10,8 @@ host `src` directory with the container, and set the `depends_on` to postgres & 
 
 # NOTES
 
+The `Dockerfile` is constructed with the premise that it is ready for production. The `docker-compose` file is for development, such that it overrides matching params in the `Dockerfile`. For production, only the `src` directory is needed.
+
 Docker compose automatically creates a project name if one is not specified. The default project name is the name of the directory.
 
 * [project name](https://docs.docker.com/compose/reference/overview/#use--p-to-specify-a-project-name)
