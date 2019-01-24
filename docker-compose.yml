@@ -1,0 +1,71 @@
+version: "3.7"
+
+services:
+  node-api:
+    working_dir: /opt/${APP_NAME}
+    image: node-api-compose
+    container_name: my-node-apis
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ./node_modules/.bin/nodemon --inspect=0.0.0.0:9229 ./src/index.js
+    ports:
+      - 3000:3000
+      - 9229:9229
+    environment:
+      - NODE_ENV=local
+    volumes:
+      - ./package.json:/opt/${APP_NAME}/package.json
+      - ./package-lock.json:/opt/${APP_NAME}/package-lock.json
+      - type: bind
+        source: ./src
+        target: /opt/${APP_NAME}/src
+        consistency: "delegated" # Docker Desktop for Mac: The container runtime’s view of the mount is authoritative. There may be delays before updates made in a container are visible on the host
+        volume:
+          nocopy: true
+      - type: volume
+        source: notused
+        target: /opt/${APP_NAME}/node_modules
+    networks:
+      - api_net
+    depends_on:
+      - postgres
+      - redis
+
+  redis:
+    container_name: my-redis
+    image: redis:5.0.3-alpine
+    ports:
+      - 6379:6379
+    volumes:
+      - type: volume
+        source: reData
+        target: /data
+    networks:
+      - api_net
+
+  postgres:
+    container_name: my-postgres
+    image: postgres:11.1-alpine
+    environment:
+      - POSTGRES_USER=novice
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=gettingStarted
+    ports:
+      - 5432:5432
+    volumes:
+      - type: volume
+        source: pgData
+        target: /var/lib/postgresql/data
+    networks:
+      - api_net
+
+networks:
+  api_net:
+
+volumes:
+  reData:
+  pgData:
+  notused:
+
+

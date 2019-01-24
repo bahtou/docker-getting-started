@@ -1,0 +1,33 @@
+{
+  "name": "getting-started",
+  "version": "1.0.0",
+  "description": "Assume that docker is installed * [for LNX](https://docs.docker.com/install/linux/docker-ce/ubuntu/) * [for OSX](https://docs.docker.com/docker-for-mac/) * [for WIN](https://docs.docker.com/docker-for-windows/)",
+  "main": "index.js",
+  "nodemonConfig": {
+    "ext": "*.js",
+    "ignore": ["node_modules/*"],
+    "verbose": true,
+    "legacy-watch": true
+  },
+  "dependencies": {
+    "pg-promise": "^8.5.5",
+    "redis": "^2.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bahtou/docker-getting-started.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bahtou/docker-getting-started/issues"
+  },
+  "homepage": "https://github.com/bahtou/docker-getting-started#readme"
+}
